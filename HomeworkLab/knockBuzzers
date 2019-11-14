@@ -1,0 +1,36 @@
+const int pushButtonPin = 2;
+const int activeBuzzerPin = 11;
+const int passiveBuzzerPin = A0;
+
+int buzzerValue = 0;
+int ok = 0;
+int threshold = 1;
+
+unsigned long currentTime = 0;
+
+void setup(){  
+  pinMode(pushButtonPin, INPUT_PULLUP);
+  pinMode(activeBuzzerPin, OUTPUT);
+  pinMode(passiveBuzzerPin, INPUT);
+}
+
+void loop() {
+  buzzerValue = analogRead(passiveBuzzerPin);
+  
+    if (buzzerValue > threshold)
+    {
+      currentTime = millis();
+      ok = 1;
+    }
+    
+    if ((millis() - currentTime) >= 5000 && ok == 1)
+    {
+      tone(activeBuzzerPin, 1000);
+    }
+    
+    if (digitalRead(pushButtonPin) == LOW && ok == 1)
+    {
+      noTone(activeBuzzerPin);
+      ok = 0;
+    }
+}
