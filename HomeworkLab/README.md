@@ -6,3 +6,7 @@ A passive buzzer detects knocks and 5 seconds after the knock, the active buzzer
 
 ## 3. 4_digit_7_segment_display ##
 Individually controlling each digit of the segment whith the joystick.
+
+## 4. MenuLCD ##
+Scrolling through the LCD Menu with a joystick.
+https://www.youtube.com/watch?v=YYGK1ryuk1c
